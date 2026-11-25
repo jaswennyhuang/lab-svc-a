@@ -2,14 +2,11 @@ name: release-please
 on:
   push:
     branches: [main]
-permissions:
-  contents: write
-  pull-requests: write
 jobs:
   release-please:
-    runs-on: ubuntu-latest
-    steps:
-      # LAB_TOKEN, not GITHUB_TOKEN: so the release PR runs ci and the tag can start other workflows.
-      - uses: googleapis/release-please-action@v4
-        with:
-          token: ${{ secrets.LAB_TOKEN }}
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-please.yml@v1.0.0
+    secrets:
+      token: ${{ secrets.LAB_TOKEN }}
