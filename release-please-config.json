@@ -1,0 +1,5 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": { ".": { "release-type": "simple", "package-name": "svc-a" } },
+  "bump-minor-pre-major": true
+}
