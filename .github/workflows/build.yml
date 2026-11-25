@@ -1,0 +1,32 @@
+name: build
+on:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Fake build: a real one would push an image svc-a:<sha> to a registry.
+      - name: Build
+        run: echo "Built image svc-a:${GITHUB_SHA::7}" >> "$GITHUB_STEP_SUMMARY"
+
+  update-dev:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: jaswennyhuang/oneflow-lab
+          token: ${{ secrets.LAB_TOKEN }}
+      # Write the new SHA into the platform repo; that commit deploys dev.
+      - name: Set svc-a version on dev
+        run: |
+          sha="${GITHUB_SHA::7}"
+          sed -i "s/^tag: .*/tag: \"$sha\"/" environments/dev/svc-a.yaml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "chore(dev): svc-a $sha"
+          for i in 1 2 3; do git pull --rebase -q && git push -q && break; sleep 3; done
