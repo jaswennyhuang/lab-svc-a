@@ -1,0 +1,15 @@
+name: release
+on:
+  push:
+    tags: ['svc-a-v*']
+jobs:
+  release:
+    permissions:
+      contents: read
+    # A release tag goes to staging on the platform's open release branch.
+    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-build.yml@v1.1.0
+    with:
+      service: svc-a
+      platform_repo: jaswennyhuang/oneflow-lab
+    secrets:
+      token: ${{ secrets.LAB_TOKEN }}

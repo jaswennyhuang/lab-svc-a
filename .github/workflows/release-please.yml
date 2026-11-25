@@ -7,6 +7,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-please.yml@v1.0.0
+    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-please.yml@v1.1.0
     secrets:
       token: ${{ secrets.LAB_TOKEN }}
