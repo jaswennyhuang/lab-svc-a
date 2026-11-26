@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/jaswennyhuang/lab-svc-a/compare/svc-a-v0.3.0...svc-a-v0.3.1) (2026-11-26)
+
+
+### Bug Fixes
+
+* shorter goodbye ([#9](https://github.com/jaswennyhuang/lab-svc-a/issues/9)) ([8a5cc38](https://github.com/jaswennyhuang/lab-svc-a/commit/8a5cc3800415eb412e07f326bd158bf89c631d53))
+
 ## [0.3.0](https://github.com/jaswennyhuang/lab-svc-a/compare/svc-a-v0.2.0...svc-a-v0.3.0) (2026-11-25)
 
 
