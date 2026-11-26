@@ -7,9 +7,10 @@ jobs:
     permissions:
       contents: read
     # A release tag goes to staging on the platform's open release branch.
-    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-build.yml@v1.1.0
+    uses: jaswennyhuang/lab-ci-templates/.github/workflows/release-build.yml@v1.2.0
     with:
       service: svc-a
-      platform_repo: jaswennyhuang/oneflow-lab
+      platform_repo: jaswennyhuang/githubflow-lab
+      staging_branch: main
     secrets:
       token: ${{ secrets.LAB_TOKEN }}

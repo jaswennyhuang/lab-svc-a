@@ -7,9 +7,9 @@ jobs:
     permissions:
       contents: read
     # All build logic lives in the shared template, pinned to a version.
-    uses: jaswennyhuang/lab-ci-templates/.github/workflows/build.yml@v1.1.0
+    uses: jaswennyhuang/lab-ci-templates/.github/workflows/build.yml@v1.2.0
     with:
       service: svc-a
-      platform_repo: jaswennyhuang/oneflow-lab
+      platform_repo: jaswennyhuang/githubflow-lab
     secrets:
       token: ${{ secrets.LAB_TOKEN }}
